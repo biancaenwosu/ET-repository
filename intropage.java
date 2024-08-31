@@ -1,11 +1,20 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
+import java.io.File;
+import org.json.simple.JSONObject; 
+import org.json.simple.parser.*; 
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 
 
 
-public class intropage {
+public class intropage implements ActionListener {
     private final JFrame page;
     private final ImageIcon background; 
     private final JLabel bg_label;
@@ -13,9 +22,29 @@ public class intropage {
     private final JTextField username;
     private final JLabel name;
     private final JButton submit;
+    
     final Font titleFont = new Font("Verdana", Font.BOLD, 32 );
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     private final Color green = new Color(104,119,62,255);
+
+    public void actionPerformer(ActionEvent e) {
+        String name = username.getText();
+        JSONObject profile = new JSONObject();
+        profile.put("Name", name);
+
+       try {
+            File Database = new File("Database.json");
+            FileWriter writer = new FileWriter(Database);
+            writer.write(profile.toJSONString());
+            writer.close();
+       } catch (IOException e) {
+           System.out.println("Error opening file");
+       }
+    }
+
+
+
+    
     public intropage(){
 
         background = new ImageIcon(this.getClass().getResource("/background.jpg"));
@@ -32,7 +61,8 @@ public class intropage {
         submit = new JButton("Next");
         submit.setBounds(270, 300, 100,30);
         submit.setBackground(green);
-
+     
+        submit.addActionListener(this);
         bg_label.add(title);
         bg_label.add(username);
         bg_label.add(name);
