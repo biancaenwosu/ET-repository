@@ -8,13 +8,6 @@ import java.awt.Font;
 import javax.swing.*;
 
 class Adjustment{
-    /*every category is an object*/
-    // change in amount function
-    // edit name function
-    // delete function
-
-
-
 
     private String name;
     private double currentValue;
