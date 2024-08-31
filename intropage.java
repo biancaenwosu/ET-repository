@@ -11,6 +11,7 @@ public class intropage {
     private final JLabel title;
     private JTextField username;
     private JLabel name;
+    private JButton submit;
     final Font titleFont = new Font("Verdana", Font.BOLD, 32 );
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     public intropage(){
@@ -26,10 +27,14 @@ public class intropage {
         username.setBounds(70, 250, 300,50);
         name.setFont(nameFont);
         name.setBounds(20, 250, 100, 50);
+        submit = new JButton("Next");
+        submit.setBounds(270, 300, 100,50);
+        
 
         bg_label.add(title);
         bg_label.add(username);
         bg_label.add(name);
+        bg_label.add(submit);
         
 
 
