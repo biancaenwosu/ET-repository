@@ -1,0 +1,31 @@
+Expense tracker plan
+
+Introduction Page
+Check if its the users first time opening the app
+If it is first time display welcome page with option to give name
+if not load data and display main page
+
+
+Main Page
+
+First time
+	Displays no sliders
+	Add new button displays a screen where user can set name and current spending 
+	Creates row for slider where circle is positioned at value set
+	Button beneath slider to delete its row
+
+Non first time
+	Save values to files somehow we discuss this method later as it easier to explain call
+	Load values back
+
+
+
+Pie chart display just maths stuff
+
+
+TO DO LIST:
+- Create a method to create and delete sliders and make them a queue format (FIFO) - Most important
+- Scrollable UI
+- Display categoriies
+
+
