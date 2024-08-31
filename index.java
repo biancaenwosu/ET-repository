@@ -28,6 +28,8 @@ public class index extends JFrame {
         /*              Header/ Title Label          */
         JLabel Welcome = new JLabel("Welcome to ET");
         Welcome.setFont(header);
+        /*              Categories Panel             */
+        
         
         
 
