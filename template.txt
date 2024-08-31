@@ -1,0 +1,59 @@
+Purpose of program
+- help students budget
+functionalities
+there is a progress bar for how much spent a month (in total and in seperate categories)
+pie chart to see what is the biggest expenditure
+advice/comments on when the user is getting close to the limit 
+coding structure
+edit average cost 
+ability to add additional expenditure (e.g, charity, tithe, savings, gym membership)
+
+
+
+
+
+
+
+
+
+
+After Text based version
+pages
+-introduction:
+-settings:
+-Homepage:
+    - Progress bar (Click it you can see seperate progress)
+    - Users name
+    - Comments on progress
+    
+
+
+
+
+
+
+Things to learn:
+-File handling
+-Dictionaries
+
+
+
+
+
+
+
+Average Costs:
+Rent	£439
+Groceries	£133
+Household bills	£79
+Going out	£69
+Transport	£69
+Takeaways and eating out	£66
+Clothes and shopping	£48
+Holidays and events	£36
+Health and wellbeing	£26
+Other	£25
+Mobile phone	£24
+Course materials	£24
+Gifts and charity	£21
+Friends and family	£19
