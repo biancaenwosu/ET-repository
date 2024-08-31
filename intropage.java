@@ -5,13 +5,13 @@ import javax.swing.*;
 
 
 public class intropage {
-    private JFrame page;
-    private ImageIcon background; 
-    private JLabel bg_label;
+    private final JFrame page;
+    private final ImageIcon background; 
+    private final JLabel bg_label;
     private final JLabel title;
-    private JTextField username;
-    private JLabel name;
-    private JButton submit;
+    private final JTextField username;
+    private final JLabel name;
+    private final JButton submit;
     final Font titleFont = new Font("Verdana", Font.BOLD, 32 );
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     public intropage(){
@@ -23,10 +23,10 @@ public class intropage {
         title.setFont(titleFont);
         title.setBounds(50, 100, 400, 32);
         username = new JTextField();
-        name = new JLabel("Name");       
-        username.setBounds(70, 250, 300,50);
+        name = new JLabel("Enter name");       
+        username.setBounds(20, 250, 350,50);
         name.setFont(nameFont);
-        name.setBounds(20, 250, 100, 50);
+        name.setBounds(130, 200, 100, 50);
         submit = new JButton("Next");
         submit.setBounds(270, 300, 100,50);
         
