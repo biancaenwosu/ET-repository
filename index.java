@@ -8,6 +8,12 @@ import java.awt.Font;
 import javax.swing.*;
 
 class Adjustment{
+    /*every category is an object*/
+    // change in amount function
+    // edit name function
+    // delete function
+
+
 
     private String name;
     private double currentValue;
@@ -46,8 +52,22 @@ public class index extends JFrame {
         JLabel Welcome = new JLabel("Welcome to ET");
         Welcome.setFont(header);
         /*              Categories Panel             */
-        
-        
+
+        JLabel Rent = new JLabel("Rent");
+        JLabel Groceries = new JLabel("Groceries");
+        JLabel Bills = new JLabel("Household bills");
+        JLabel out = new JLabel("Going out");
+        JLabel Transport = new JLabel("Transport");
+        JLabel Takeaways = new JLabel("Restraunts and takeaways");
+        JLabel Shopping = new JLabel("Shopping");
+        JLabel Events = new JLabel("Events");
+        JLabel Health = new JLabel("Health");
+        JLabel Other = new JLabel("Other");
+        JLabel Phone = new JLabel("Mobile phone");
+        JLabel School = new JLabel("Course material");
+        JLabel Gifts = new JLabel("Gifts and charity");
+        JLabel FF = new JLabel("Friends and Family");
+
         
 
 
