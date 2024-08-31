@@ -28,16 +28,20 @@ public class intropage implements ActionListener {
     private final Color green = new Color(104,119,62,255);
 
     public void actionPerformer(ActionEvent e) {
+        System.out.println("1");
         String name = username.getText();
         JSONObject profile = new JSONObject();
+
         profile.put("Name", name);
 
        try {
+            System.out.println("2");
             File Database = new File("Database.json");
             FileWriter writer = new FileWriter(Database);
             writer.write(profile.toJSONString());
+            System.out.println("3");
             writer.close();
-       } catch (IOException e) {
+       } catch (IOException no) {
            System.out.println("Error opening file");
        }
     }
@@ -63,6 +67,7 @@ public class intropage implements ActionListener {
         submit.setBackground(green);
      
         submit.addActionListener(this);
+   
         bg_label.add(title);
         bg_label.add(username);
         bg_label.add(name);
