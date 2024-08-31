@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 
@@ -14,6 +15,7 @@ public class intropage {
     private final JButton submit;
     final Font titleFont = new Font("Verdana", Font.BOLD, 32 );
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
+    private final Color green = new Color(104,119,62,255);
     public intropage(){
 
         background = new ImageIcon(this.getClass().getResource("/background.jpg"));
@@ -26,10 +28,10 @@ public class intropage {
         name = new JLabel("Enter name");       
         username.setBounds(20, 250, 350,50);
         name.setFont(nameFont);
-        name.setBounds(130, 200, 100, 50);
+        name.setBounds(140, 200, 100, 50);
         submit = new JButton("Next");
-        submit.setBounds(270, 300, 100,50);
-        
+        submit.setBounds(270, 300, 100,30);
+        submit.setBackground(green);
 
         bg_label.add(title);
         bg_label.add(username);
