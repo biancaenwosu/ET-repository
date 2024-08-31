@@ -15,6 +15,7 @@ class Adjustment{
 
 
 
+
     private String name;
     private double currentValue;
 
