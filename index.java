@@ -8,14 +8,31 @@ import java.awt.Font;
 import javax.swing.*;
 
 class Adjustment{
-    /*every category is an object*/
-    // increase function
-    //decrease function
-    // edit name function
-    // delete function
+
+    private String name;
+    private double currentValue;
+
+    public Adjustment(String name, double currentValue){
+        this.name = name;
+        this.currentValue = currentValue;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+    public double getCurrentValue(){
+        return this.currentValue;
+    }
+
+    public void changeCurrentValue(double newValue){
+        this.currentValue = newValue;
+    }
+    // Delete made later
+
+
 }
 
-//                   Page layout
+//Page layout
 // title/ header
 // categories
 // sliders
