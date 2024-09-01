@@ -28,18 +28,18 @@ public class intropage implements ActionListener {
     private final Color green = new Color(104,119,62,255);
 
     public void actionPerformer(ActionEvent e) {
-        System.out.println("1");
+
         String name = username.getText();
         JSONObject profile = new JSONObject();
 
         profile.put("Name", name);
 
        try {
-            System.out.println("2");
+         
             File Database = new File("Database.json");
             FileWriter writer = new FileWriter(Database);
             writer.write(profile.toJSONString());
-            System.out.println("3");
+        
             writer.close();
        } catch (IOException no) {
            System.out.println("Error opening file");
@@ -86,6 +86,43 @@ public class intropage implements ActionListener {
     public static void main(String[] args) {
         new intropage();
 
+    }
+
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("1");
+        String name = username.getText();
+        JSONObject profile = new JSONObject();
+
+        profile.put("Name", name);
+        profile.put("Rent", 439.0);
+        profile.put("Groceries", 133.0);
+        profile.put("Household bills", 79.0);
+        profile.put("Going out", 69.0);
+        profile.put("Transport", 69.0);
+        profile.put("Takeaways and eating out", 66.0);
+        profile.put("Clothes and shopping", 48.0);
+        profile.put("Holidays and events", 36.0);
+        profile.put("Health and wellbeing", 26.0);
+        profile.put("Other", 25.0);
+        profile.put("Mobile phone", 24.0);
+        profile.put("Course materials", 24.0);
+        profile.put("Gifts and charity", 21.0);
+        profile.put("Friends and family", 19.0);
+
+       try {
+            System.out.println("2");
+            File Database = new File("Database.json");
+            FileWriter writer = new FileWriter(Database);
+            writer.write(profile.toJSONString());
+            System.out.println("3");
+            writer.close();
+       } catch (IOException no) {
+           System.out.println("Error opening file");
+       }
     }
     
 
