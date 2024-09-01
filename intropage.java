@@ -60,6 +60,7 @@ public class intropage implements ActionListener {
         username = new JTextField();
         name = new JLabel("Enter name");       
         username.setBounds(20, 250, 350,50);
+        username.setHorizontalAlignment(JTextField.CENTER);
         name.setFont(nameFont);
         name.setBounds(140, 200, 100, 50);
         submit = new JButton("Next");
