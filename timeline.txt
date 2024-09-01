@@ -1,13 +1,13 @@
 31/08/24
-- create starter template
+- create starter template ✓
 - discuss front end features (e.g. dimensions, colour scheme, etc...)
 - discuss backend code (e.g. modular prgramming, variables, constants)
 - create design of all pages
-- allocate sections (on the intro page)
-- create a almost full structure for code on intropage (comments)
+- allocate sections (on the intro page) ✓
+- create a almost full structure for code on intropage (comments)✓
 
 week starting 02/09/24
-- code introduction page
+- code introduction page ✓
 - finalise separate branches and merge commit
 - allocate sections on the mainpage
 - create full structure for code on mainpage
