@@ -27,12 +27,8 @@ public class intropage implements ActionListener {
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     private final Color green = new Color(104,119,62,255);
 
-<<<<<<< HEAD
-    public void actionPerformer(ActionEvent x) {
-=======
     public void actionPerformer(ActionEvent e) {
         System.out.println("1");
->>>>>>> f0e29831662cd51a938341e6fdae560f556881f9
         String name = username.getText();
         JSONObject profile = new JSONObject();
 
