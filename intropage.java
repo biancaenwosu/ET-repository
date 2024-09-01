@@ -121,6 +121,7 @@ public class intropage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         DataHandler.createProfile(username.getName());
+        // Here is datahandler class
     }
     
 
