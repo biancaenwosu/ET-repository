@@ -91,7 +91,7 @@ public class intropage implements ActionListener {
     }
     public static void main(String[] args) {
         try {
-            File file = new File("Database.json");
+            File file = new File("Database");
             if(file.exists()){ // Check if their data exists
             // Open main page
             System.out.println("Main page opened");
@@ -107,7 +107,7 @@ public class intropage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         DataHandler.createProfile(username.getName());
-        // Here is datahandler class
+
     }
     
 
