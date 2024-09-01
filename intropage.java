@@ -2,19 +2,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
-
-import java.util.HashMap;
-
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
+import javax.swing.*;
 
 
 
@@ -51,8 +40,8 @@ public class intropage implements ActionListener {
         title.setBounds(50, 100, 400, 32);
         // create a text box called user name where user can type
         username = new JTextField();
-        // create a label that has the text "Enter name"
-        name = new JLabel("Enter name");   
+        // create a label that has the text "Enter your name"
+        name = new JLabel("Enter your name");   
         // say where you want your username text box to go    
         username.setBounds(20, 250, 350,50);
         // make all the writing in the textbox have a centre alignment
@@ -60,7 +49,7 @@ public class intropage implements ActionListener {
         // set the font of the name label 
         name.setFont(nameFont);
         // say where you want it to go on the screen 
-        name.setBounds(140, 200, 100, 50);
+        name.setBounds(140, 200, 200, 50);
         // create a button with the text "next"
         submit = new JButton("Next");
         // say where you want the button to go
@@ -107,7 +96,7 @@ public class intropage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         DataHandler.createProfile(username.getName());
-
+        // Here is datahandler class
     }
     
 
