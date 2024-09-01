@@ -27,7 +27,7 @@ public class intropage implements ActionListener {
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     private final Color green = new Color(104,119,62,255);
 
-    public void actionPerformer(ActionEvent e) {
+    public void actionPerformer(ActionEvent x) {
         String name = username.getText();
         JSONObject profile = new JSONObject();
         profile.put("Name", name);
@@ -81,6 +81,11 @@ public class intropage implements ActionListener {
     public static void main(String[] args) {
         new intropage();
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 
