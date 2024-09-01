@@ -5,11 +5,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import java.util.HashMap;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import org.json.simple.JSONObject; 
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 
 
 
@@ -27,25 +32,6 @@ public class intropage implements ActionListener {
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     // set the colour green as it's rgb value
     private final Color green = new Color(104,119,62,255);
-
-    public void actionPerformer(ActionEvent e) {
-
-        String name = username.getText();
-        JSONObject profile = new JSONObject();
-
-        profile.put("Name", name);
-
-       try {
-         
-            File Database = new File("Database.json");
-            FileWriter writer = new FileWriter(Database);
-            writer.write(profile.toJSONString());
-        
-            writer.close();
-       } catch (IOException no) {
-           System.out.println("Error opening file");
-       }
-    }
 
 
 
