@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import java.io.File;
-import org.json.simple.JSONObject; 
-import org.json.simple.parser.*; 
 import java.io.FileWriter;
 import java.io.IOException;
+import org.json.simple.JSONObject; 
+
+
 import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 
 
@@ -84,7 +85,17 @@ public class intropage implements ActionListener {
         page.setVisible(true);
     }
     public static void main(String[] args) {
-        new intropage();
+        try {
+            File file = new File("Database.json");
+            if(file.exists()){ // Check if their data exists
+            // Open main page
+            System.out.println("Main page opened");
+            }else{ // If it doesnt exist start user from intro
+                new intropage();
+            }
+        } catch (Exception e) {
+            System.out.println("Error opening file");
+        }
 
     }
 
@@ -96,7 +107,7 @@ public class intropage implements ActionListener {
         System.out.println("1");
         String name = username.getText();
         JSONObject profile = new JSONObject();
-
+        // Later on will change this to map type json
         profile.put("Name", name);
         profile.put("Rent", 439.0);
         profile.put("Groceries", 133.0);
@@ -114,11 +125,11 @@ public class intropage implements ActionListener {
         profile.put("Friends and family", 19.0);
 
        try {
-            System.out.println("2");
+        
             File Database = new File("Database.json");
             FileWriter writer = new FileWriter(Database);
             writer.write(profile.toJSONString());
-            System.out.println("3");
+
             writer.close();
        } catch (IOException no) {
            System.out.println("Error opening file");
