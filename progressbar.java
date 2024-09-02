@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -6,7 +5,7 @@ public class progressbar extends JPanel {
     private int progress = 0;  // Progress value (0 to 100)
 
     public progressbar() {
-        this.setPreferredSize(new Dimension(200, 200));  // Set the size of the progress bar
+        this.setPreferredSize(new Dimension(300, 50));  // Set the preferred size of the progress bar
     }
 
     // Method to set the progress value
@@ -15,7 +14,7 @@ public class progressbar extends JPanel {
         repaint();  // Repaint the component to reflect the new progress
     }
 
-    // Override the paintComponent method to draw the round progress bar
+    // Override the paintComponent method to draw the progress bar
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -27,27 +26,20 @@ public class progressbar extends JPanel {
         // Get the size of the component
         int width = getWidth();
         int height = getHeight();
-        int diameter = Math.min(width, height) - 10;  // Ensure the circle fits within the component
-        int x = (width - diameter) / 2;
-        int y = (height - diameter) / 2;
+        int arc = height;  // The arc for rounded edges (half of the height for fully rounded ends)
 
-        // Draw the background circle (full circle)
+        // Draw the background of the progress bar
         g2d.setColor(Color.LIGHT_GRAY);
-        g2d.fillOval(x, y, diameter, diameter);
+        g2d.fillRoundRect(0, 0, width, height, arc, arc);
 
-        // Draw the progress arc
+        // Calculate the width of the progress
+        int progressWidth = (int) ((width * progress) / 100.0);
+
+        // Draw the progress bar
         g2d.setColor(Color.GREEN);
-        int angle = (int) (360 * (progress / 100.0));
-        g2d.fillArc(x, y, diameter, diameter, 90, -angle);
+        g2d.fillRoundRect(0, 0, progressWidth, height, arc, arc);
 
-        // Draw the inner circle to create the "donut" effect
-        int innerDiameter = diameter - 20;
-        int innerX = x + 10;
-        int innerY = y + 10;
-        g2d.setColor(getBackground());
-        g2d.fillOval(innerX, innerY, innerDiameter, innerDiameter);
-
-        // Draw the progress text in the center of the circle
+        // Draw the progress text in the center of the bar
         String progressText = progress + "%";
         Font font = new Font("Arial", Font.BOLD, 18);
         FontMetrics metrics = g2d.getFontMetrics(font);
@@ -60,10 +52,10 @@ public class progressbar extends JPanel {
 
     public static void main(String[] args) {
         // Create the frame
-        JFrame frame = new JFrame("Round Progress Bar");
+        JFrame frame = new JFrame("Rounded Progress Bar");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create the round progress bar component
+        // Create the rounded progress bar component
         progressbar progressBar = new progressbar();
         frame.add(progressBar);
         frame.pack();
@@ -81,4 +73,3 @@ public class progressbar extends JPanel {
         }).start();
     }
 }
-    
