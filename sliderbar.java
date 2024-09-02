@@ -3,7 +3,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-public class settingspage {
+public class sliderbar {
     public static void main(String[] args) {
         // Create the main frame
         JFrame frame = new JFrame("JSlider Example");

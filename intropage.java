@@ -83,7 +83,7 @@ public class intropage implements ActionListener {
             File file = new File("Database");
             if(file.exists()){ // Check if their data exists
                 // Open main page
-              
+               
                 //mainpage.main(null);
 
                 System.out.println("Main page opened");

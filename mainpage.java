@@ -7,6 +7,7 @@ import javax.swing.*;
 public class mainpage extends JFrame{
     //initialise all the components
     private JFrame mainframe;
+    static JProgressBar Bar = new JProgressBar();
     private JLabel titleheader;
     private String username;
     private String message;
