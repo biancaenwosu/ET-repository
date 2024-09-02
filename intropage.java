@@ -84,9 +84,9 @@ public class intropage implements ActionListener {
             if(file.exists()){ // Check if their data exists
                 // Open main page
               
-                mainpage.main(null);
+                //mainpage.main(null);
 
-            System.out.println("Main page opened");
+                System.out.println("Main page opened");
             }else{ // If it doesnt exist start user from intro
                 new intropage();
             }
