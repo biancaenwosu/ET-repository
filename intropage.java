@@ -82,7 +82,10 @@ public class intropage implements ActionListener {
         try {
             File file = new File("Database");
             if(file.exists()){ // Check if their data exists
-            // Open main page
+                // Open main page
+              
+                mainpage.main(null);
+
             System.out.println("Main page opened");
             }else{ // If it doesnt exist start user from intro
                 new intropage();
@@ -95,7 +98,7 @@ public class intropage implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        DataHandler.createProfile(username.getName());
+        DataHandler.createProfile(username.getText());
         // Here is datahandler class
     }
     
