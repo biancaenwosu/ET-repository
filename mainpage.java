@@ -42,6 +42,26 @@ public class mainpage extends JFrame{
         mainframe.setVisible(true);
         // if user clicks 'x' then mainframe closes
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel p = new JPanel();
+        Bar.setValue(0);
+ 
+        Bar.setStringPainted(true);
+        p.add(Bar);
+        mainframe.add(p);
+       
+
+
+
+
+
+
+
+
+
+
+
+
         // add things to the mainframe
         mainframe.add(titleheader, BorderLayout.NORTH);
 
