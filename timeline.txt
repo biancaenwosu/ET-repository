@@ -10,6 +10,10 @@ week starting 02/09/24
 - code introduction page ✓
 - finalise separate branches and merge commit ✓
 - allocate sections on the mainpage
+    - marc: progress bar
+    - marc: pie chart 
+    - marc: comments
+    - ezinwa: backend 
 - create full structure for code on mainpage
 - start coding main page
 - allocate sections on the setting page
