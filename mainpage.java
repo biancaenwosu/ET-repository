@@ -4,7 +4,7 @@ import java.awt.Font;
 import java.util.HashMap;
 import javax.swing.*;
 
-public class mainpage {
+public class mainpage extends JFrame{
     //initialise all the components
     private JFrame mainframe;
     private JLabel titleheader;
@@ -25,6 +25,7 @@ public class mainpage {
         titleheader.setHorizontalAlignment(JLabel.CENTER);
         titleheader.setFont(Header);
         titleheader.setBackground(green);
+        titleheader.setOpaque(true);
 
 
 
