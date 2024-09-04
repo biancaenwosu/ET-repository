@@ -1,3 +1,4 @@
+package PageStuff;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -27,9 +28,11 @@ public class intropage implements ActionListener {
 
 
     
-    public intropage(){
+    public  intropage(){
+        System.out.println("1");
         // make a variable called background a picture called 'background.jpg'
-        background = new ImageIcon(this.getClass().getResource("/background.jpg"));
+        background = new ImageIcon(this.getClass().getResource("Templates/background.jpg"));
+        
         // create a JLabel with background on it
         bg_label = new JLabel(background);
         // create the dimensions of the label
@@ -38,6 +41,7 @@ public class intropage implements ActionListener {
         title = new JLabel("Expense Tracker");
         // set the font of the title label 
         title.setFont(titleFont);
+        
         // say where you want the label to be on the page
         title.setBounds(50, 100, 400, 32);
         // create a text box called user name where user can type
@@ -59,6 +63,7 @@ public class intropage implements ActionListener {
         // colour th ebackground of the button green which is a variable for an rgb value
         submit.setBackground(green);
         // check whether the button has been clicked with an action listener
+        System.out.println("3");
         submit.addActionListener(this);
         //add all the labels, buttons and textfield to the background label so it shows infront of the background picture
         bg_label.add(title);
@@ -80,6 +85,7 @@ public class intropage implements ActionListener {
         // so you can see this window
         page.setVisible(true);
     }
+
     public static void main(String[] args) {
         try {
             File file = new File("Database");
@@ -100,6 +106,7 @@ public class intropage implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+      
         DataHandler.createProfile(username.getText());
         // Here is datahandler class
     }
