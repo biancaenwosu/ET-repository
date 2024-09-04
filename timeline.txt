@@ -1,0 +1,34 @@
+31/08/24
+- create starter template ✓
+- discuss front end features (e.g. dimensions, colour scheme, etc...)✓
+- discuss backend code (e.g. modular prgramming, variables, constants)✓
+- create design of all pages ✓
+- allocate sections (on the intro page) ✓
+- create a almost full structure for code on intropage (comments)✓
+
+week starting 02/09/24
+- code introduction page ✓
+- finalise separate branches and merge commit ✓
+- allocate sections on the mainpage
+    - marc: progress bar
+    - marc: pie chart 
+    - marc: comments
+    - ezinwa: backend 
+    - ezinwa: behind the pie chart 
+- create full structure for code on mainpage
+- start coding main page
+- allocate sections on the setting page
+- start on structure for code on setting page
+
+week starting 07/09/24
+- code mainpage 
+- finalise sperate branches and merge commit
+- finish structure for setting page 
+- start coding setting page
+- discuss additional functionalities to be implemented
+
+week starting 14/09/24
+- code setting page
+- finalise seperate branches and merge commit
+- add any extra implementations
+- discuss final product
