@@ -16,7 +16,7 @@ public class mainpage extends JFrame{
     public mainpage(){
         // get the profile of the user
         HashMap<String, String> profile = new HashMap<String, String>();
-        profile = DataHandler.returnProfile();
+        profile = Modules.DataHandler.returnProfile();
 
         /*              Header              */ 
         
