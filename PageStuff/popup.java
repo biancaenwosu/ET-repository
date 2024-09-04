@@ -25,7 +25,7 @@ public class popup implements ActionListener{
         });
         // set dimensions of dropdown menu
        
-        menu.setBounds(25,30,100,40);;
+        menu.setBounds(25,30,100,40);
 
         // create text box where user inputs amount
         amount = new JTextField();
