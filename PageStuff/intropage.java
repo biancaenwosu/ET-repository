@@ -65,7 +65,7 @@ public class intropage implements ActionListener {
         // check whether the button has been clicked with an action listener
         System.out.println("3");
         submit.addActionListener(this);
-        //add all the labels, buttons and textfield to the background label so it shows infront of the background picture
+        // add all the labels, buttons and textfield to the background label so it shows infront of the background picture
         bg_label.add(title);
         bg_label.add(username);
         bg_label.add(name);
