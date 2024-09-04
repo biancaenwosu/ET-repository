@@ -31,7 +31,7 @@ public class intropage implements ActionListener {
     public  intropage(){
         System.out.println("1");
         // make a variable called background a picture called 'background.jpg'
-        background = new ImageIcon(this.getClass().getResource("Templates/background.jpg"));
+        background = new ImageIcon(this.getClass().getResource("/Templates/background.jpg"));
         
         // create a JLabel with background on it
         bg_label = new JLabel(background);
