@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.util.HashMap;
 import javax.swing.*;
 
+import Modules.DataHandler;
+
 public class mainpage extends JFrame{
     //initialise all the components
     private JFrame mainframe;
