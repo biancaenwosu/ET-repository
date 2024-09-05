@@ -132,4 +132,23 @@ public class DataHandler {
      return  profile; // Returns the previously saved hashmap to be used
     }
 
+    public static void UpdateCurrentValue(String valueName, Double value, HashMap<String,Double> profile){
+        profile.replace(valueName, value);
+        try { // Catching exceptions incase opening fails
+            File file = new File("currentValueDatabase"); // Creating/Opening a file called Database with no filename extension as its unneeded 
+            try {
+                FileOutputStream fos = new FileOutputStream(file); // File Output Stream is used to write binary data from the hashmap 
+                ObjectOutputStream oos = new ObjectOutputStream(fos);   // Works on the bytes of the given object
+                oos.writeObject(profile); // Can write hashmap to the stream as it is serialilizable 
+                oos.flush(); // A buffer which allows all the bytes to be written while the program waits
+                oos.close();
+                fos.close(); // Closing frees up system resources
+            } catch (IOException i) { // IOExceptions are caused by errors in writing or reading files
+                System.out.println("Error writing");
+            }
+        } catch (Exception x) {
+            System.out.println("Error opening");
+        }
+    }
+
 }
