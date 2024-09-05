@@ -20,11 +20,9 @@ public class popup implements ActionListener{
         menu.addActionListener((ActionEvent e) -> {
             Object selectedItem = menu.getSelectedItem();
             System.out.println(selectedItem);
-            
-            
+                        
         });
-        // set dimensions of dropdown menu
-       
+        // set dimensions of dropdown menu and placement
         menu.setBounds(25,30,100,40);
 
         // create text box where user inputs amount
@@ -50,21 +48,23 @@ public class popup implements ActionListener{
         screen.add(amount_text); 
         screen.add(amount);
         screen.add(next);
-
+        // adding dimensions and other routine stuff
         screen.setSize(400,150);
         screen.setVisible(true);
-        //screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
        
 
     }
     public static void main(String[] args) {
+        // call the method
         popup myObj = new popup();
         myObj.popup_menu();
         
 
     }
     @Override
+    // if the submit button is pressed
     public void actionPerformed(ActionEvent f){
         if (f.getSource() == next) {
             String[] results = {menu.getSelectedItem().toString(),amount.getText()};
