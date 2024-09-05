@@ -49,7 +49,7 @@ public class mainpage extends JFrame{
         Bar.setStringPainted(true);
         p.add(Bar);
         mainframe.add(p);
-        PieChartPanel pieChartPanel = new PieChartPanel("message", PieChartPanel.createExpenseDataset());
+        PieChartPanel pieChartPanel = new PieChartPanel("Total Spending Chart", PieChartPanel.createExpenseDataset());
 
         pieChartPanel.setPreferredSize(getPreferredSize());
         mainframe.add(pieChartPanel,BorderLayout.CENTER);
