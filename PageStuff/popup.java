@@ -3,6 +3,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.HashMap;
+
 import javax.swing.*;
 
 
@@ -68,7 +70,10 @@ public class popup implements ActionListener{
     // if the submit button is pressed
     public void actionPerformed(ActionEvent f){
         if (f.getSource() == next) {
+            HashMap<String, Double> profile = new HashMap<String, Double>();
+            profile = DataHandler.returnCurrentValueProfile();
             String[] results = {menu.getSelectedItem().toString(),amount.getText()};
+            DataHandler.UpdateCurrentValue(results[0],Double.parseDouble(results[1]),profile);
             System.out.println(Arrays.toString(results));
 
         }
