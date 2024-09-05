@@ -33,8 +33,6 @@ public class PieChartPanel extends JPanel {
             @Override
             public void chartMouseClicked(ChartMouseEvent event) {
                 
-                System.out.println("Clicked");
-                popup.main(null); // shows popup page
             }
 
             @Override
@@ -120,18 +118,18 @@ public class PieChartPanel extends JPanel {
         DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("Rent",currentValueProfile.get("Rent") );
         dataset.setValue("Groceries",currentValueProfile.get("Groceries"));
-        dataset.setValue("Household bills", 1);
-        dataset.setValue("Going out", 0);
-        dataset.setValue("Transport", 0);
-        dataset.setValue("Takeaways and eating out",0);
-        dataset.setValue("Clothes and shopping", 0);
-        dataset.setValue("Holidays and events", 0);
-        dataset.setValue("Health and wellbeing", 0);
-        dataset.setValue("Other", 0);
-        dataset.setValue("Mobile phone", 0);
-        dataset.setValue("Course materials", 0);
-        dataset.setValue("Gifts and charity", 0);
-        dataset.setValue("Friends and family", 0);
+        dataset.setValue("Household bills", currentValueProfile.get("Household bills"));
+        dataset.setValue("Going out", currentValueProfile.get("Going out"));
+        dataset.setValue("Transport", currentValueProfile.get("Transport"));
+        dataset.setValue("Takeaways and eating out",currentValueProfile.get("Takeaways and eating out"));
+        dataset.setValue("Clothes and shopping", currentValueProfile.get("Clothes and shopping"));
+        dataset.setValue("Holidays and events", currentValueProfile.get("Holidays and events"));
+        dataset.setValue("Health and wellbeing", currentValueProfile.get("Health and wellbeing"));
+        dataset.setValue("Other", currentValueProfile.get("Other"));
+        dataset.setValue("Mobile phone", currentValueProfile.get("Mobile phone"));
+        dataset.setValue("Course materials", currentValueProfile.get("Course materials"));
+        dataset.setValue("Gifts and charity", currentValueProfile.get("Gifts and charity"));
+        dataset.setValue("Friends and family", currentValueProfile.get("Friends and family"));
         return dataset;
     }
 
