@@ -34,7 +34,7 @@ public class PieChartPanel extends JPanel {
             public void chartMouseClicked(ChartMouseEvent event) {
                 
                 System.out.println("Clicked");
-                popup.main(null);
+                popup.main(null); // shows popup page
             }
 
             @Override
