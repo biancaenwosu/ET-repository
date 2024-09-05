@@ -7,6 +7,7 @@ import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
+import PageStuff.popup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,6 +33,8 @@ public class PieChartPanel extends JPanel {
             @Override
             public void chartMouseClicked(ChartMouseEvent event) {
                 
+                System.out.println("Clicked");
+                popup.main(null);
             }
 
             @Override

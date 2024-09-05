@@ -14,7 +14,7 @@ public class mainpage extends JFrame{
     private JLabel titleheader;
     private String username;
     private String message;
-    private final Color green = new Color(104,119,62,255);
+    private final Color purple = new Color(196,0,255);
     private Font Header = new Font("Verdana",Font.BOLD,30);
     public mainpage(){
         // get the profile of the user
@@ -28,7 +28,7 @@ public class mainpage extends JFrame{
         titleheader = new JLabel(message);
         titleheader.setHorizontalAlignment(JLabel.CENTER);
         titleheader.setFont(Header);
-        titleheader.setBackground(green);
+        titleheader.setBackground(purple);
         titleheader.setOpaque(true);
 
 
