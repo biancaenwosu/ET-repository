@@ -5,10 +5,10 @@ import org.jfree.chart.entity.ChartEntity;
 import org.jfree.chart.entity.PieSectionEntity;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.util.HashNMap;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
 import java.util.HashMap;
+import java.util.Map;
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,10 +16,11 @@ public class PieChartPanel extends JPanel {
 
     private Comparable lastHoveredSection = null; 
     private JPopupMenu hoverPopup;
-
+    private DefaultPieDataset dataset;
+    private JFreeChart pieChart; 
     public PieChartPanel(String chartTitle, DefaultPieDataset dataset) {
-       
-        JFreeChart pieChart = createPieChart(chartTitle, dataset);
+       this.dataset = dataset;
+       pieChart = createPieChart(chartTitle, dataset);
 
        
         ChartPanel chartPanel = new ChartPanel(pieChart);
@@ -71,7 +72,15 @@ public class PieChartPanel extends JPanel {
 
         hoverPopup.show(chartPanel, x - chartPanel.getLocationOnScreen().x, y - chartPanel.getLocationOnScreen().y);
     }
+    public void addData(String key, double value) {
+        dataset.setValue(key, value); // Add new value
+        pieChart.fireChartChanged();  // Notify the chart of the change
+    }
 
+    public void removeData(String key) {
+        dataset.remove(key); // Remove the value
+        pieChart.fireChartChanged(); // Notify the chart of the change
+    }
     private JFreeChart createPieChart(String title, DefaultPieDataset dataset) {
 
         JFreeChart chart = ChartFactory.createPieChart(
@@ -113,7 +122,8 @@ public class PieChartPanel extends JPanel {
         return chart;
     }
 
-    
+  
+
 
     public static DefaultPieDataset createExpenseDataset() {
         HashMap<String,Double> currentValueProfile = DataHandler.returnCurrentValueProfile();
