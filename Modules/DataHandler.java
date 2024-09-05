@@ -95,6 +95,7 @@ public class DataHandler {
         profile.put("Course materials", 0.0);
         profile.put("Gifts and charity", 0.0);
         profile.put("Friends and family", 0.0);
+        profile.put("Rent", 0.0);
         
         try { // Catching exceptions incase opening fails
             File file = new File("currentValueDatabase"); // Creating/Opening a file called Database with no filename extension as its unneeded 
