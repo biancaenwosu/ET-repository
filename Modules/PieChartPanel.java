@@ -81,6 +81,31 @@ public class PieChartPanel extends JPanel {
         );
 
         PiePlot plot = (PiePlot) chart.getPlot();
+      
+        Color[] purpleShades = {
+            new Color(200, 160, 255), // Light lavender
+            new Color(180, 130, 255), // Light medium orchid
+            new Color(160, 100, 255), // Light dark orchid
+            new Color(140, 70, 255),  // Light deep purple
+            new Color(120, 40, 255),  // Medium deep purple
+            new Color(100, 10, 255),  // Dark purple
+            new Color(80, 0, 255),    // Very dark purple
+            new Color(60, 0, 255),    // Nearly black purple
+            new Color(40, 0, 255),    // Almost black purple
+            new Color(20, 0, 255)     // Very dark violet
+        };
+
+        // Set colors to sections
+        String[] sectionLabels = {
+            "Rent", "Groceries", "Household bills", "Going out", "Transport",
+            "Takeaways and eating out", "Clothes and shopping", "Holidays and events",
+            "Health and wellbeing", "Other", "Mobile phone", "Course materials",
+            "Gifts and charity", "Friends and family"
+        };
+
+        for (int i = 0; i < sectionLabels.length; i++) {
+            plot.setSectionPaint(sectionLabels[i], purpleShades[i % purpleShades.length]);
+        }
 
         return chart;
     }
