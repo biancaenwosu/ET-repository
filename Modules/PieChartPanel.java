@@ -117,7 +117,7 @@ public class PieChartPanel extends JPanel {
     public static DefaultPieDataset createExpenseDataset() {
         HashMap<String,Double> currentValueProfile = DataHandler.returnCurrentValueProfile();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Rent",currentValueProfile.get("Rent") );
+        dataset.setValue("Rent",1); //currentValueProfile.get("Rent") 
         dataset.setValue("Groceries",currentValueProfile.get("Groceries"));
         dataset.setValue("Household bills", currentValueProfile.get("Household bills"));
         dataset.setValue("Going out", currentValueProfile.get("Going out"));
