@@ -23,20 +23,21 @@ public class popup implements ActionListener{
                         
         });
         // set dimensions of dropdown menu and placement
-        menu.setBounds(25,30,100,40);
+        menu.setBounds(5,30,170,40);
+     
 
         // create text box where user inputs amount
         amount = new JTextField();
         amount.setHorizontalAlignment(SwingConstants.CENTER);
-        amount.setBounds(230,30,50,40);
+        amount.setBounds(280,30,50,40);
         // create label that prompts amount being added'
         amount_text = new JLabel("Amount (in £):");
-        amount_text.setBounds(125,30,100,40);
+        amount_text.setBounds(175,30,100,40);
         amount_text.setHorizontalAlignment(SwingConstants.RIGHT);
 
         // create submit button
         next = new JButton("Submit");
-        next.setBounds(290,30,80,40);
+        next.setBounds(370,30,80,40);
         next.addActionListener(this);
 
 
@@ -49,7 +50,7 @@ public class popup implements ActionListener{
         screen.add(amount);
         screen.add(next);
         // adding dimensions and other routine stuff
-        screen.setSize(400,150);
+        screen.setSize(500,150);
         screen.setVisible(true);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
