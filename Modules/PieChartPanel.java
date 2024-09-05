@@ -113,6 +113,7 @@ public class PieChartPanel extends JPanel {
         return chart;
     }
 
+    
 
     public static DefaultPieDataset createExpenseDataset() {
         HashMap<String,Double> currentValueProfile = DataHandler.returnCurrentValueProfile();
