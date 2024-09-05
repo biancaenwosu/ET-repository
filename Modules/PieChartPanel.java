@@ -5,9 +5,10 @@ import org.jfree.chart.entity.ChartEntity;
 import org.jfree.chart.entity.PieSectionEntity;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.util.HashNMap;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
-
+import java.util.HashMap;
 import javax.swing.*;
 import java.awt.*;
 
@@ -106,27 +107,29 @@ public class PieChartPanel extends JPanel {
         for (int i = 0; i < sectionLabels.length; i++) {
             plot.setSectionPaint(sectionLabels[i], purpleShades[i % purpleShades.length]);
         }
-
+        chart.removeLegend();
+        plot.setLabelGenerator(null);
         return chart;
     }
 
 
     public static DefaultPieDataset createExpenseDataset() {
+        HashMap<String,Double> currentValueProfile = DataHandler.returnCurrentValueProfile();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Rent", 439.00);
-        dataset.setValue("Groceries", 133.00);
-        dataset.setValue("Household bills", 79.00);
-        dataset.setValue("Going out", 69.00);
-        dataset.setValue("Transport", 69.00);
-        dataset.setValue("Takeaways and eating out", 66.00);
-        dataset.setValue("Clothes and shopping", 48.00);
-        dataset.setValue("Holidays and events", 36.00);
-        dataset.setValue("Health and wellbeing", 26.00);
-        dataset.setValue("Other", 25.00);
-        dataset.setValue("Mobile phone", 24.00);
-        dataset.setValue("Course materials", 24.00);
-        dataset.setValue("Gifts and charity", 21.00);
-        dataset.setValue("Friends and family", 19.00);
+        dataset.setValue("Rent",currentValueProfile.get("Rent") );
+        dataset.setValue("Groceries",currentValueProfile.get("Groceries"));
+        dataset.setValue("Household bills", 1);
+        dataset.setValue("Going out", 0);
+        dataset.setValue("Transport", 0);
+        dataset.setValue("Takeaways and eating out",0);
+        dataset.setValue("Clothes and shopping", 0);
+        dataset.setValue("Holidays and events", 0);
+        dataset.setValue("Health and wellbeing", 0);
+        dataset.setValue("Other", 0);
+        dataset.setValue("Mobile phone", 0);
+        dataset.setValue("Course materials", 0);
+        dataset.setValue("Gifts and charity", 0);
+        dataset.setValue("Friends and family", 0);
         return dataset;
     }
 
