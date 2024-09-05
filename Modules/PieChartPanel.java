@@ -13,28 +13,25 @@ import java.awt.*;
 
 public class PieChartPanel extends JPanel {
 
-  
-    public PieChartPanel(String chartTitle, DefaultPieDataset dataset) {
+    private Comparable lastHoveredSection = null; 
+    private JPopupMenu hoverPopup;
 
-     
+    public PieChartPanel(String chartTitle, DefaultPieDataset dataset) {
+       
         JFreeChart pieChart = createPieChart(chartTitle, dataset);
-        
-        
-    
+
+       
         ChartPanel chartPanel = new ChartPanel(pieChart);
         chartPanel.setPreferredSize(new Dimension(800, 600));
 
- 
+        hoverPopup = new JPopupMenu();
+        hoverPopup.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        hoverPopup.add(new JLabel("")); 
+       
         chartPanel.addChartMouseListener(new ChartMouseListener() {
             @Override
             public void chartMouseClicked(ChartMouseEvent event) {
-                ChartEntity entity = event.getEntity();
-                if (entity instanceof PieSectionEntity) {
-                    PieSectionEntity pieEntity = (PieSectionEntity) entity;
-                    Comparable key = pieEntity.getSectionKey();  
-                    Number value = dataset.getValue(key);        
-                    System.out.println("Clicked on: " + key + " - Value: " + value);
-                }
+                
             }
 
             @Override
@@ -42,19 +39,39 @@ public class PieChartPanel extends JPanel {
                 ChartEntity entity = event.getEntity();
                 if (entity instanceof PieSectionEntity) {
                     PieSectionEntity pieEntity = (PieSectionEntity) entity;
-                    Comparable key = pieEntity.getSectionKey(); 
-                    System.out.println("Mouse over: " + key);
+                    Comparable key = pieEntity.getSectionKey();  
+                    Number value = dataset.getValue(key);
+
+                   
+                    if (!key.equals(lastHoveredSection)) {
+                        updatePopup(key, value, event.getTrigger().getXOnScreen(), event.getTrigger().getYOnScreen(), chartPanel);
+                        System.out.println("Hovering over: " + key + " - Value: " + value);
+                        lastHoveredSection = key; 
+                    }
+                } else {
+                    hoverPopup.setVisible(false);
+                    lastHoveredSection = null; 
                 }
             }
         });
 
+     
         this.setLayout(new BorderLayout());
         this.add(chartPanel, BorderLayout.CENTER);
     }
 
+    private void updatePopup(Comparable key, Number value, int x, int y, ChartPanel chartPanel) {
+        hoverPopup.setVisible(false); 
+
+     
+        String content = key + ": " + value;
+        ((JLabel) hoverPopup.getComponent(0)).setText(content);
+
+        hoverPopup.show(chartPanel, x - chartPanel.getLocationOnScreen().x, y - chartPanel.getLocationOnScreen().y);
+    }
 
     private JFreeChart createPieChart(String title, DefaultPieDataset dataset) {
-  
+
         JFreeChart chart = ChartFactory.createPieChart(
                 title,                
                 dataset,              
@@ -63,10 +80,7 @@ public class PieChartPanel extends JPanel {
                 false
         );
 
-
-   
-
-
+        PiePlot plot = (PiePlot) chart.getPlot();
 
         return chart;
     }
@@ -91,5 +105,6 @@ public class PieChartPanel extends JPanel {
         return dataset;
     }
 
-   
+  
+ 
 }

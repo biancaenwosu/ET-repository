@@ -1,11 +1,11 @@
-package PageStuff;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.HashMap;
 import javax.swing.*;
 
-import Modules.DataHandler;
+
 
 public class mainpage extends JFrame{
     //initialise all the components
@@ -40,11 +40,8 @@ public class mainpage extends JFrame{
         // choose the type of layout the main frome will have
         mainframe.setLayout(new BorderLayout());
         // dimensions of the main frame
-        mainframe.setSize(400,500);
-        // check if you can see the page
-        mainframe.setVisible(true);
-        // if user clicks 'x' then mainframe closes
-        mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainframe.setSize(1000,700);
+
 
         JPanel p = new JPanel();
         Bar.setValue(0);
@@ -52,21 +49,22 @@ public class mainpage extends JFrame{
         Bar.setStringPainted(true);
         p.add(Bar);
         mainframe.add(p);
-       
+        PieChartPanel pieChartPanel = new PieChartPanel("message", PieChartPanel.createExpenseDataset());
 
-
-
-
-
-
-
-
-
-
+        pieChartPanel.setPreferredSize(getPreferredSize());
+        mainframe.add(pieChartPanel,BorderLayout.CENTER);
 
 
         // add things to the mainframe
         mainframe.add(titleheader, BorderLayout.NORTH);
+
+
+
+        // check if you can see the page
+        mainframe.setVisible(true);
+        // if user clicks 'x' then mainframe closes
+        mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
     
         

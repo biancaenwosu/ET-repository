@@ -1,4 +1,4 @@
-package PageStuff;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.*;
 
-import Modules.DataHandler;
+
 
 
 
@@ -31,10 +31,10 @@ public class intropage implements ActionListener {
     public  intropage(){
         System.out.println("1");
         // make a variable called background a picture called 'background.jpg'
-        background = new ImageIcon(this.getClass().getResource("/Templates/background.jpg"));
+        background = null; //new ImageIcon(this.getClass().getResource("/Templates/background.jpg"));
         
         // create a JLabel with background on it
-        bg_label = new JLabel(background);
+        bg_label = new JLabel(); //background
         // create the dimensions of the label
         bg_label.setSize(400,500);
         // create a label called title and the text is 'Expense Tracker'
