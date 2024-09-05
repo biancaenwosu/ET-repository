@@ -14,6 +14,7 @@ public class popup implements ActionListener{
     JTextField amount;
     JLabel amount_text;
     JButton next;
+    DefaultListCellRenderer menurenderer = new DefaultListCellRenderer();
     static String[] options = {"Rent","Groceries","Household bills","Going out","Transport","Takeaways and eating out","Clothes and shopping","Holidays and events","Health and wellbeing","Mobile phone","Course materials","Gifts and charity","Friends and family","Other"};
     public void popup_menu(){
         
@@ -26,7 +27,8 @@ public class popup implements ActionListener{
         });
         // set dimensions of dropdown menu and placement
         menu.setBounds(5,30,170,40);
-     
+        menurenderer.setHorizontalAlignment(DefaultListCellRenderer.CENTER);
+        menu.setRenderer(menurenderer);
 
         // create text box where user inputs amount
         amount = new JTextField();
@@ -75,6 +77,7 @@ public class popup implements ActionListener{
             String[] results = {menu.getSelectedItem().toString(),amount.getText()};
             DataHandler.UpdateCurrentValue(results[0],Double.parseDouble(results[1]),profile);
             System.out.println(Arrays.toString(results));
+            screen.dispose();
 
         }
         

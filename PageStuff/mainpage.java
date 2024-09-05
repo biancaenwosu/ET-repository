@@ -14,7 +14,7 @@ public class mainpage extends JFrame{
     private JLabel titleheader;
     private String username;
     private String message;
-    private final Color purple = new Color(196,0,255);
+    private final Color purple = new Color(200, 160, 255);
     private Font Header = new Font("Verdana",Font.BOLD,30);
     public mainpage(){
         // get the profile of the user
