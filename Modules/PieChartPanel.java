@@ -5,6 +5,7 @@ import org.jfree.chart.entity.ChartEntity;
 import org.jfree.chart.entity.PieSectionEntity;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.util.HashNMap;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
 import java.util.HashMap;
@@ -16,10 +17,11 @@ public class PieChartPanel extends JPanel {
 
     private Comparable lastHoveredSection = null; 
     private JPopupMenu hoverPopup;
-    private DefaultPieDataset dataset;
-    private JFreeChart pieChart; 
-    public PieChartPanel(String chartTitle, DefaultPieDataset dataset) {
-       this.dataset = dataset;
+    private static DefaultPieDataset dataset;
+    private static JFreeChart pieChart; 
+  
+    public  PieChartPanel(String chartTitle, DefaultPieDataset dataset) {
+       PieChartPanel.dataset = dataset;
        pieChart = createPieChart(chartTitle, dataset);
 
        
@@ -35,6 +37,7 @@ public class PieChartPanel extends JPanel {
             public void chartMouseClicked(ChartMouseEvent event) {
                 System.out.println("Clicked");
                 popup.main(null); // shows popup page
+                
             }
 
             @Override
@@ -72,6 +75,17 @@ public class PieChartPanel extends JPanel {
 
         hoverPopup.show(chartPanel, x - chartPanel.getLocationOnScreen().x, y - chartPanel.getLocationOnScreen().y);
     }
+
+
+    public static void updateDataset() {
+        HashMap<String, Double> dataMap = DataHandler.returnCurrentValueProfile();
+        dataset.clear(); // Clear the old data
+        for (Map.Entry<String, Double> entry : dataMap.entrySet()) {
+            dataset.setValue(entry.getKey(), entry.getValue());
+        }
+        pieChart.fireChartChanged(); // Notify the chart panel to update
+    }
+
     public void addData(String key, double value) {
         dataset.setValue(key, value); // Add new value
         pieChart.fireChartChanged();  // Notify the chart of the change
@@ -122,6 +136,9 @@ public class PieChartPanel extends JPanel {
         return chart;
     }
 
+    public JFreeChart getPieChart(){
+        return pieChart;
+    }
   
 
 

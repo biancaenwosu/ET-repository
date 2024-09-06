@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.HashMap;
-
+import java.util.Map;
 import javax.swing.*;
+
+import org.jfree.util.HashNMap;
 
 
 public class popup implements ActionListener{
@@ -76,9 +78,10 @@ public class popup implements ActionListener{
             profile = DataHandler.returnCurrentValueProfile();
             String[] results = {menu.getSelectedItem().toString(),amount.getText()};
             DataHandler.UpdateCurrentValue(results[0],Double.parseDouble(results[1]),profile);
+            PieChartPanel.updateDataset();
             System.out.println(Arrays.toString(results));
             screen.dispose();
-
+            
         }
         
     }

@@ -53,7 +53,7 @@ public class mainpage extends JFrame{
 
         pieChartPanel.setPreferredSize(getPreferredSize());
         mainframe.add(pieChartPanel,BorderLayout.CENTER);
-
+ 
 
         // add things to the mainframe
         mainframe.add(titleheader, BorderLayout.NORTH);

@@ -135,6 +135,7 @@ public class DataHandler {
 
     public static void UpdateCurrentValue(String valueName, Double value, HashMap<String,Double> profile){
         profile.replace(valueName, value);
+        
         try { // Catching exceptions incase opening fails
             File file = new File("currentValueDatabase"); // Creating/Opening a file called Database with no filename extension as its unneeded 
             try {
