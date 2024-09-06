@@ -18,6 +18,8 @@ week starting 02/09/24
 - start coding main page
 - allocate sections on the setting page
 - start on structure for code on setting page
+    - ezinwa: slider bar
+    - marc:
 
 week starting 07/09/24
 - code mainpage 
