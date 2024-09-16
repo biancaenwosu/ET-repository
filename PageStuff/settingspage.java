@@ -29,10 +29,11 @@ public class settingspage {
     Font headerFont = new Font("Arial",Font.BOLD,40);
     JButton addButton;
     int ypos = 50;
-    HashMap<String, Double> profile = new HashMap<>();
-    profile = DataHandler.returnCurrentValueProfile();
+    
     
     public settingspage(){
+        HashMap<String, String> profile = new HashMap<>();
+        profile = DataHandler.returnProfile();
         // header
         settingsPageLabel = new JLabel("Settings Page");
         settingsPageLabel.setBounds(0,0,600,50);
@@ -53,6 +54,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 rent_number.setText(String.valueOf(Rentbar.sliderListener()));
+                DataHandler.UpdateValue("Rent",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -70,6 +72,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Groceries_number.setText(String.valueOf(Groceriesbar.sliderListener()));
+                DataHandler.UpdateValue("Groceries",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -107,6 +110,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 goingout_number.setText(String.valueOf(goingoutbar.sliderListener()));
+                DataHandler.UpdateValue("Gping out",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -126,6 +130,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Transport_number.setText(String.valueOf(Transportbar.sliderListener()));
+                DataHandler.UpdateValue("Transport",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -145,6 +150,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Takeaways_number.setText(String.valueOf(Takeawaysbar.sliderListener()));
+                DataHandler.UpdateValue("Takeaways and eating out",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -164,6 +170,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 shopping_number.setText(String.valueOf(shoppingbar.sliderListener()));
+                DataHandler.UpdateValue("Clothes and shopping",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -183,6 +190,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 events_number.setText(String.valueOf(eventsbar.sliderListener()));
+                DataHandler.UpdateValue("Holidays and events",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -202,6 +210,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Health_number.setText(String.valueOf(Healthbar.sliderListener()));
+                DataHandler.UpdateValue("Health and wellbeing",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -211,7 +220,7 @@ public class settingspage {
 
 
         //Mobilephone
-        Mobilephone = new JLabel("Mobilephone");
+        Mobilephone = new JLabel("Phone");
         Mobilephone.setBounds(5,ypos,70,50);
         sliderbar Mobilephonebar = new sliderbar(50,profile.get("Mobile phone"),5);
         Mobilephonebar.slider.setBounds(80,ypos, 300, 50);
@@ -222,6 +231,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Mobilephone_number.setText(String.valueOf(Mobilephonebar.sliderListener()));
+                DataHandler.UpdateValue("Mobile phone",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -241,10 +251,11 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 school_number.setText(String.valueOf(schoolbar.sliderListener()));
+                DataHandler.UpdateValue("Course materials",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
-        school_number.setBounds(5,ypos,50,50);
+        school_number.setBounds(510,ypos,50,50);
 
         ypos += 70;
 
@@ -260,6 +271,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 charity_number.setText(String.valueOf(charitybar.sliderListener()));
+                DataHandler.UpdateValue("Gifts and charity",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -279,6 +291,7 @@ public class settingspage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 family_number.setText(String.valueOf(familybar.sliderListener()));
+                DataHandler.UpdateValue("Friends and family",String.valueOf(Rentbar.sliderListener()),DataHandler.returnProfile());
             }
             
         });
@@ -355,6 +368,7 @@ public class settingspage {
         settings.add(school);
         settings.add(schoolbar.slider);
         settings.add(applyschool);
+        settings.add(school_number);
     
         // add charity section to frame
         settings.add(charity);
@@ -414,6 +428,7 @@ public class settingspage {
     }
     private void addComponent(String component){
         ypos += 70;
+        profile.put(component,0.0);
 
         JLabel label = new JLabel(component);
         label.setBounds(5,ypos,100,50);
