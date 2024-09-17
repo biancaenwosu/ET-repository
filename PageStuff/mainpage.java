@@ -1,16 +1,17 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.util.HashMap;
 import javax.swing.*;
-
+import java.lang.*;
 
 
 public class mainpage extends JFrame{
     //initialise all the components
     private JFrame mainframe;
-    static JProgressBar Bar = new JProgressBar();
+   // static JProgressBar Bar = new JProgressBar();
     private JLabel titleheader;
     private String username;
     private String message;
@@ -33,8 +34,7 @@ public class mainpage extends JFrame{
 
 
 
-        // create  the centre of the page with the pie chart
-        
+
         // create the mainframe
         mainframe = new JFrame();
         // choose the type of layout the main frome will have
@@ -43,12 +43,22 @@ public class mainpage extends JFrame{
         mainframe.setSize(1000,700);
 
 
-        JPanel p = new JPanel();
-        Bar.setValue(0);
- 
-        Bar.setStringPainted(true);
-        p.add(Bar);
-        mainframe.add(p);
+        //JPanel barPanel = new JPanel(new BorderLayout());
+        MarcsBar  barPanel = new  MarcsBar(DataHandler.returnCurrentTotal(), DataHandler.returnTotal());
+        // int percentage = (int) Math.round((DataHandler.returnCurrentTotal()/DataHandler.returnTotal())*100);
+
+        // Bar.setValue(percentage);
+       
+
+       
+       
+        mainframe.add(barPanel,BorderLayout.SOUTH);
+
+
+
+
+
+
         PieChartPanel pieChartPanel = new PieChartPanel("Total Spending Chart", PieChartPanel.createExpenseDataset());
 
         pieChartPanel.setPreferredSize(getPreferredSize());

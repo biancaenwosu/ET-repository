@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.Map;
 
 public class DataHandler {
     public static void createProfile(String name){
@@ -59,6 +60,39 @@ public class DataHandler {
      }
      
      return  profile; // Returns the previously saved hashmap to be used
+    }
+    public static int returnTotal(){
+        HashMap<String,String> profile = new HashMap<String,String>();  // Creates a hashmap to store the pre existing hashmap
+        double total = 0;
+        try {
+        File file = new File("Database"); 
+        try {
+            FileInputStream fis = new FileInputStream(file); // Reads binary data
+            ObjectInputStream ois = new ObjectInputStream(fis); // Works on taking in the binary data of the object given
+            profile = (HashMap<String,String> )ois.readObject(); // Sets the hashmap profile to the read hashmap from the file
+            
+            for (Map.Entry<String, String> entry : profile.entrySet()) {
+                if (!"Name".equals(entry.getKey())){
+                  
+                    Double value = Double.valueOf(entry.getValue());
+                    total += value;
+                }
+            
+        
+            }
+
+
+            ois.close();
+            System.out.println("Actual total is: "+total);
+
+        } catch (IOException e) {
+            System.out.println("Error writing");
+        }
+     } catch (Exception e) {
+        System.out.println("Error opening");
+     }
+     
+     return  (int)Math.round(total*100); 
     }
 
     public static void UpdateValue(String valueName, String value, HashMap<String,String> profile){
@@ -132,7 +166,34 @@ public class DataHandler {
      
      return  profile; // Returns the previously saved hashmap to be used
     }
+    public static int returnCurrentTotal(){
+        HashMap<String,Double> profile = new HashMap<String,Double>();  // Creates a hashmap to store the pre existing hashmap
+        double total = 0;
+        try {
+        File file = new File("currentValueDatabase"); 
+        try {
+            FileInputStream fis = new FileInputStream(file); // Reads binary data
+            ObjectInputStream ois = new ObjectInputStream(fis); // Works on taking in the binary data of the object given
+            profile = (HashMap<String,Double> )ois.readObject(); // Sets the hashmap profile to the read hashmap from the file
+            
+            for (Map.Entry<String, Double> entry : profile.entrySet()) {
+             
+                Double value = entry.getValue();
+                total += value;
+            
+            }
+            ois.close();
+            System.out.println("Current total is: "+total);
 
+        } catch (IOException e) {
+            System.out.println("Error writing");
+        }
+     } catch (Exception e) {
+        System.out.println("Error opening");
+     }
+     
+     return  (int)Math.round(total*100); // Returns the previously saved hashmap to be used
+    }
     public static void UpdateCurrentValue(String valueName, Double value, HashMap<String,Double> profile){
         profile.replace(valueName, value);
         

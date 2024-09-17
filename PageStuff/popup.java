@@ -81,6 +81,7 @@ public class popup implements ActionListener{
             DataHandler.UpdateCurrentValue(results[0],Double.parseDouble(results[1]),profile);
             PieChartPanel.updateDataset();
             System.out.println(Arrays.toString(results));
+            MarcsBar.updateBar();
             screen.dispose();
             
         }

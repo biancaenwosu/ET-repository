@@ -106,7 +106,7 @@ public class PieChartPanel extends JPanel {
         );
 
         PiePlot plot = (PiePlot) chart.getPlot();
-      
+     
         Color[] purpleShades = {
             new Color(200, 160, 255), // Light lavender
             new Color(180, 130, 255), // Light medium orchid
@@ -132,7 +132,10 @@ public class PieChartPanel extends JPanel {
             plot.setSectionPaint(sectionLabels[i], purpleShades[i % purpleShades.length]);
         }
         chart.removeLegend();
+        plot.setOutlineVisible(false);
+        plot.setBackgroundPaint(Color.white);
         plot.setLabelGenerator(null);
+        
         return chart;
     }
 
