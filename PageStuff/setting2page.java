@@ -203,19 +203,25 @@ public class setting2page {
         settings.add(addText);
     }
     private void addComponent(String component,HashMap<String,String> profile){
-        
+        String valueChosen;
         profile.put(component,"0");
 
         JLabel label = new JLabel(component);
         label.setBounds(5,ypos,200,50);
-        sliderbar slider_bar = new sliderbar(profile.get(component));
+        JTextField number = new JTextField(profile.get(component));
+        sliderbar slider_bar = new sliderbar(number.getText())
         slider_bar.slider.setBounds(210,ypos,300,50);
         JButton button = new JButton("Apply");
         button.setBounds(520,ypos,100,50);
-        JLabe   l number = new JLabel(String.valueOf(slider_bar.sliderListener()));
         button.addActionListener((ActionEvent e) -> {
-            number.setText(String.valueOf(slider_bar.sliderListener()));
-            DataHandler.UpdateValue(component,String.valueOf(slider_bar.sliderListener()),DataHandler.returnProfile());
+            if(String.valueOf(slider_bar.sliderListener()) == profile.get(component)){
+                valueChosen = number.getText();
+            }else{
+                valueChosen = String.valueOf(slider_bar.sliderListener());
+            }
+            
+            DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
+            number.setText(profile.get(component);
         });
         number.setBounds(630,ypos,50,50);
 
