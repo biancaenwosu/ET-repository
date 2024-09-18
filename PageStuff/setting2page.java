@@ -3,6 +3,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -73,7 +74,7 @@ public class setting2page {
             public void mousePressed(MouseEvent e) {
                 if (SwingUtilities.isRightMouseButton(e)){
                     
-                    System.out.println("detected");
+                    //System.out.println("detected");
                     
                     
                     String component = detectComponent(DataHandler.returnProfile(), e.getY());
@@ -114,8 +115,8 @@ public class setting2page {
         int componentHeight = (ypos- 50) / numberOfComponents;  // Calculate height per component
         // Adjust mouseY to ignore the offset from the top
         int adjustedY = mouseY - 50;
-        System.out.println(ypos);
-        System.out.println(mouseY);
+        //System.out.println(ypos);
+        //System.out.println(mouseY);
         
         // Determine which component was clicked
         int componentIndex = adjustedY / componentHeight;  // Find the index of the component clicked
@@ -123,10 +124,10 @@ public class setting2page {
         if (componentIndex >= 0 && componentIndex < numberOfComponents) {
             // Get the component based on the index (convert to array for access)
             component = (String) profile.keySet().toArray()[componentIndex];
-            System.out.println("Right-clicked on: " + component);
+            //System.out.println("Right-clicked on: " + component);
         } else {
             component = "null";
-            System.out.println("No component found at this position.");
+            //System.out.println("No component found at this position.");
         }
         return component;
        
@@ -156,7 +157,7 @@ public class setting2page {
         addButton();
         settings.revalidate();
         settings.repaint();
-        System.out.println("Deleted component: " + component);
+        //System.out.println("Deleted component: " + component);
 
     }
     private void Component(String component,HashMap<String,String> profile){
@@ -164,14 +165,28 @@ public class setting2page {
 
         JLabel label = new JLabel(component);
         label.setBounds(5,ypos,200,50);
-        sliderbar slider_bar = new sliderbar(profile.get(component));
+        JTextField number = new JTextField(profile.get(component));
+        sliderbar slider_bar = new sliderbar(number.getText());
         slider_bar.slider.setBounds(210,ypos,300,50);
         JButton button = new JButton("Apply");
         button.setBounds(520,ypos,100,50);
-        JLabel number = new JLabel(String.valueOf(slider_bar.sliderListener()));
-        button.addActionListener((ActionEvent e) -> {
-            number.setText(String.valueOf(slider_bar.sliderListener()));
-            DataHandler.UpdateValue(component,String.valueOf(slider_bar.sliderListener()),DataHandler.returnProfile());
+        button.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String valueChosen;
+                if(slider_bar.sliderListener() == Double.valueOf(profile.get(component)).intValue()){
+                    valueChosen = number.getText();
+                }else{
+                    valueChosen = String.valueOf(slider_bar.sliderListener());
+                }
+                
+                DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
+                number.setText(profile.get(component));
+                settings.revalidate();
+                settings.repaint();
+            }
+            
         });
         number.setBounds(630,ypos,50,50);
 
@@ -203,25 +218,37 @@ public class setting2page {
         settings.add(addText);
     }
     private void addComponent(String component,HashMap<String,String> profile){
-        String valueChosen;
+       
         profile.put(component,"0");
 
         JLabel label = new JLabel(component);
         label.setBounds(5,ypos,200,50);
         JTextField number = new JTextField(profile.get(component));
-        sliderbar slider_bar = new sliderbar(number.getText())
+        sliderbar slider_bar = new sliderbar(number.getText());
         slider_bar.slider.setBounds(210,ypos,300,50);
         JButton button = new JButton("Apply");
         button.setBounds(520,ypos,100,50);
-        button.addActionListener((ActionEvent e) -> {
-            if(String.valueOf(slider_bar.sliderListener()) == profile.get(component)){
-                valueChosen = number.getText();
-            }else{
-                valueChosen = String.valueOf(slider_bar.sliderListener());
+        button.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String valueChosen;
+                if(slider_bar.sliderListener() == Double.valueOf(profile.get(component)).intValue()){
+                    valueChosen = number.getText();
+                    System.out.println(valueChosen);
+              
+                }else{
+                    valueChosen = String.valueOf(slider_bar.sliderListener());
+                    number.setText(valueChosen);
+                }
+                System.out.println(valueChosen);
+                
+                DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
+                settings.revalidate();
+                settings.repaint();
+                
             }
             
-            DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
-            number.setText(profile.get(component);
         });
         number.setBounds(630,ypos,50,50);
 

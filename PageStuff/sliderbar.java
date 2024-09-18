@@ -20,6 +20,7 @@ public class sliderbar {
         slider.setPaintLabels(true);
         };
     public int sliderListener(){
+     
         int SliderValue = slider.getValue();
 
         return SliderValue;
