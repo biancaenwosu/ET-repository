@@ -32,9 +32,16 @@ public class setting2page {
         settingsPageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         settingsPageLabel.setFont(headerFont);
         settingsPageLabel.setBackground(new Color(180, 130, 255));
+        settings.add(settingsPageLabel);
+        // back to main button
+        JButton main = new JButton("Back to main<<");
+        main.setBounds(0,0,150,50);
+        main.addActionListener((ActionEvent e) -> {
+            mainpage.main(null);
+            settings.setVisible(false);
+        });
 
-
-                    
+        settings.add(main);
         for (String key: profile.keySet()){
             if (!"Name".equals(key)){
                 Component(key, profile);
