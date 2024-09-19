@@ -45,8 +45,13 @@ public class mainpage extends JFrame{
 
 
         //JPanel barPanel = new JPanel(new BorderLayout());
+        double currentTotal = Double.valueOf(DataHandler.returnCurrentTotal())/100;
+        double finalTotal = Double.valueOf(DataHandler.returnTotal())/100;
+     
+
         MarcsBar  barPanel = new  MarcsBar(DataHandler.returnCurrentTotal(), DataHandler.returnTotal());
-        Legend = new MarcsScrollingPane(DataHandler.returnCurrentTotal(), DataHandler.returnTotal());
+        
+        Legend = new MarcsScrollingPane(currentTotal, finalTotal);
         // int percentage = (int) Math.round((DataHandler.returnCurrentTotal()/DataHandler.returnTotal())*100);
 
         // Bar.setValue(percentage);
