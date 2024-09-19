@@ -140,12 +140,23 @@ public class setting2page {
         });
         popUp.add(delete);
     }
-    private void deleteComponent(HashMap<String,String> profile,String component){
-        if (component != null){
-            profile.remove(component);
-
-        }
+    private void refereshUI(HashMap<String,String> profile){
         settings.removeAll();
+        settingsPageLabel = new JLabel("Settings Page");
+        settingsPageLabel.setBounds(0,0,600,50);
+        settingsPageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        settingsPageLabel.setFont(headerFont);
+        settingsPageLabel.setBackground(new Color(180, 130, 255));
+        settings.add(settingsPageLabel);
+        // back to main button
+        JButton main = new JButton("Back to main<<");
+        main.setBounds(0,0,150,50);
+        main.addActionListener((ActionEvent e) -> {
+            mainpage.main(null);
+            settings.setVisible(false);
+        });
+
+        settings.add(main);
         ypos = 50;  // Reset ypos
         for (String key : profile.keySet()) {
             if (!"Name".equals(key)) {
@@ -157,6 +168,13 @@ public class setting2page {
         addButton();
         settings.revalidate();
         settings.repaint();
+    }
+    private void deleteComponent(HashMap<String,String> profile,String component){
+        if (component != null){
+            profile.remove(component);
+
+        }
+        refereshUI(profile);
         //System.out.println("Deleted component: " + component);
 
     }
@@ -182,9 +200,7 @@ public class setting2page {
                 }
                 
                 DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
-                number.setText(profile.get(component));
-                settings.revalidate();
-                settings.repaint();
+                refereshUI(profile);
             }
             
         });
@@ -241,11 +257,10 @@ public class setting2page {
                     valueChosen = String.valueOf(slider_bar.sliderListener());
                     number.setText(valueChosen);
                 }
-                System.out.println(valueChosen);
+                System.out.println("Chosen value: "+valueChosen);
                 
                 DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
-                settings.revalidate();
-                settings.repaint();
+                refereshUI(profile);
                 
             }
             
