@@ -33,7 +33,7 @@ public class setting2page {
         settings.setLayout(null);
         // header set up
         settingsPageLabel = new JLabel("Settings Page");
-        settingsPageLabel.setBounds(0,0,600,50);
+        settingsPageLabel.setBounds(100,0,600,50);
         settingsPageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         settingsPageLabel.setFont(headerFont);
         settingsPageLabel.setBackground(new Color(180, 130, 255));
