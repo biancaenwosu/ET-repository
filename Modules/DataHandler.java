@@ -206,6 +206,7 @@ public class DataHandler {
                 oos.flush(); // A buffer which allows all the bytes to be written while the program waits
                 oos.close();
                 fos.close(); // Closing frees up system resources
+                MarcsScrollingPane.updateLegend(profile);
                 System.out.println(profile.toString()); // Outputs the hashmap to check it was received correctly
             } catch (IOException i) { // IOExceptions are caused by errors in writing or reading files
                 System.out.println("Error writing");
