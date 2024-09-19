@@ -213,10 +213,6 @@ public class setting2page {
         settings.add(slider_bar.slider);
         settings.add(button);
         settings.add(number);
-
-
-
-        
         
     }
     private void addButton(){
@@ -262,8 +258,9 @@ public class setting2page {
                 }
                 System.out.println("Chosen value: "+valueChosen);
                 
-                DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
+                DataHandler.UpdateValue(component,valueChosen,profile);
                 refereshUI(profile);
+                number.setText(valueChosen);
                 
             }
             
@@ -274,7 +271,7 @@ public class setting2page {
         settings.add(slider_bar.slider);
         settings.add(button);
         settings.add(number);
-        ypos += 70;
+        //ypos += 70;
 
     }
     private void updateButton(JButton addButton){
