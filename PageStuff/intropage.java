@@ -23,7 +23,7 @@ public class intropage implements ActionListener {
     final Font titleFont = new Font("Verdana", Font.BOLD, 32 );
     final Font nameFont = new Font("Verdana", Font.ITALIC, 16);
     // set the colour green as it's rgb value
-    private final Color green = new Color(104,119,62,255);
+    private final Color purple = new Color(200, 160, 255);
 
 
 
@@ -61,7 +61,7 @@ public class intropage implements ActionListener {
         // say where you want the button to go
         submit.setBounds(270, 300, 100,30);
         // colour th ebackground of the button green which is a variable for an rgb value
-        submit.setBackground(green);
+        submit.setBackground(purple);
         // check whether the button has been clicked with an action listener
         System.out.println("3");
         submit.addActionListener(this);
