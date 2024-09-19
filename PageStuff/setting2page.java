@@ -23,11 +23,15 @@ public class setting2page {
     
     
     public setting2page(){
+        //initialise mainframe
+        mainFrame = new JFrame("Settings Page");
+        // read from the database (which contains a hashmap)
         HashMap<String, String> profile = new HashMap<>();
         profile = DataHandler.returnProfile();
+        // create the settings panel
         settings = new JPanel();
         settings.setLayout(null);
-        // header
+        // header set up
         settingsPageLabel = new JLabel("Settings Page");
         settingsPageLabel.setBounds(0,0,600,50);
         settingsPageLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -37,20 +41,23 @@ public class setting2page {
         // back to main button
         JButton main = new JButton("Back to main<<");
         main.setBounds(0,0,150,50);
+        // if it's clicked the window shuts and a new one (the mainpage) opens
         main.addActionListener((ActionEvent e) -> {
             mainpage.main(null);
-            settings.setVisible(false);
+            mainFrame.dispose();
         });
 
         settings.add(main);
+        // a for loop that creates all the categories, their slider, their apply buttons and the value of the slider in a textbox
         for (String key: profile.keySet()){
+            // it exculdes the name category as this doesn't need a slider
             if (!"Name".equals(key)){
                 Component(key, profile);
                 ypos += 70;
             }
         }
         settings.setPreferredSize(new java.awt.Dimension(600,ypos+70));
-
+        // this creates an 'add new option' button at the very bottom of the page
         addButton();
         
 
@@ -59,9 +66,8 @@ public class setting2page {
         JScrollPane scrollPane = new JScrollPane(settings);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        //mainFrame set up
-        mainFrame = new JFrame("Settings Page");
+        
+        // this is to check if any of the options have been right clicked to be deleted        
         settings.addMouseListener(new MouseListener() {
 
             @Override
@@ -101,6 +107,7 @@ public class setting2page {
             }
             
         });
+        // mainframe set up
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(700,500);
         mainFrame.add(scrollPane);
@@ -115,8 +122,6 @@ public class setting2page {
         int componentHeight = (ypos- 50) / numberOfComponents;  // Calculate height per component
         // Adjust mouseY to ignore the offset from the top
         int adjustedY = mouseY - 50;
-        //System.out.println(ypos);
-        //System.out.println(mouseY);
         
         // Determine which component was clicked
         int componentIndex = adjustedY / componentHeight;  // Find the index of the component clicked
