@@ -198,9 +198,12 @@ public class setting2page {
                 }else{
                     valueChosen = String.valueOf(slider_bar.sliderListener());
                 }
+                System.out.println("Chosen value: "+valueChosen);
                 
-                DataHandler.UpdateValue(component,valueChosen,DataHandler.returnProfile());
+                DataHandler.UpdateValue(component,valueChosen,profile);
                 refereshUI(profile);
+
+                number.setText(valueChosen);
             }
             
         });
