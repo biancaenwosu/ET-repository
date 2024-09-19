@@ -17,6 +17,7 @@ public class mainpage extends JFrame{
     private String message;
     private final Color purple = new Color(200, 160, 255);
     private Font Header = new Font("Verdana",Font.BOLD,30);
+    private MarcsScrollingPane Legend;
     public mainpage(){
         // get the profile of the user
         HashMap<String, String> profile = new HashMap<String, String>();
@@ -44,14 +45,20 @@ public class mainpage extends JFrame{
 
 
         //JPanel barPanel = new JPanel(new BorderLayout());
+        double currentTotal = Double.valueOf(DataHandler.returnCurrentTotal())/100;
+        double finalTotal = Double.valueOf(DataHandler.returnTotal())/100;
+     
+
         MarcsBar  barPanel = new  MarcsBar(DataHandler.returnCurrentTotal(), DataHandler.returnTotal());
+        
+        Legend = new MarcsScrollingPane(currentTotal, finalTotal);
         // int percentage = (int) Math.round((DataHandler.returnCurrentTotal()/DataHandler.returnTotal())*100);
 
         // Bar.setValue(percentage);
        
 
        
-       
+        mainframe.add(Legend,BorderLayout.WEST);
         mainframe.add(barPanel,BorderLayout.SOUTH);
 
 
@@ -67,7 +74,7 @@ public class mainpage extends JFrame{
 
         // add things to the mainframe
         mainframe.add(titleheader, BorderLayout.NORTH);
-
+ 
 
 
         // check if you can see the page

@@ -33,7 +33,9 @@ public class MarcsBar extends JPanel implements MouseListener   {
         bar.setForeground(new Color(200, 160, 255));
         bar.setBorder(new LineBorder(new Color(138,43,226),1));
         bar.setFont(new Font("Verdana",Font.BOLD,30));
+        
 
+        
 
         bar.setOrientation(SwingConstants.HORIZONTAL);
         this.add(bar,BorderLayout.CENTER);
