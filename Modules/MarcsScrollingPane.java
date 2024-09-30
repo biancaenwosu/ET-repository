@@ -16,7 +16,7 @@ public class MarcsScrollingPane extends JPanel {
     private static String total;
     private static JLabel titleheader;
     private final Color purple = new Color(200, 160, 255);
-    private Font Header = new Font("Verdana",Font.BOLD,30);
+    private Font Header = new Font("Verdana",Font.BOLD,25);
     private static JTextArea tA = new JTextArea();
     public MarcsScrollingPane(double c, double m){
         this.setLayout(new BorderLayout());
@@ -29,7 +29,7 @@ public class MarcsScrollingPane extends JPanel {
         titleheader.setFont(Header);
         titleheader.setBackground(purple);
         titleheader.setOpaque(true);
-
+        titleheader.setToolTipText(total);
         
         tA.setEditable(false);
         tA.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -70,7 +70,7 @@ public class MarcsScrollingPane extends JPanel {
 
         total = "Total: £"+ String.valueOf(Double.valueOf(DataHandler.returnCurrentTotal())/100) + "/£" + String.valueOf(Double.valueOf(DataHandler.returnTotal())/100);
         titleheader.setText(total);
-        
+        titleheader.setToolTipText(total);
 
 
 

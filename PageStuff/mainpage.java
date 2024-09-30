@@ -1,5 +1,7 @@
 
 import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,6 +20,14 @@ public class mainpage extends JFrame{
     private final Color purple = new Color(200, 160, 255);
     private Font Header = new Font("Verdana",Font.BOLD,30);
     private MarcsScrollingPane Legend;
+    void buildConstraints(GridBagConstraints gbc, int gx, int gy, int gw, int gh, int wx, int wy){
+        gbc.gridx = gx;
+        gbc.gridy = gy;
+        gbc.gridwidth = gw;
+        gbc.gridheight = gh;
+        gbc.weightx = wx;
+        gbc.weighty = wy;
+    }
     public mainpage(){
         // get the profile of the user
         HashMap<String, String> profile = new HashMap<String, String>();
@@ -38,10 +48,20 @@ public class mainpage extends JFrame{
 
         // create the mainframe
         mainframe = new JFrame();
-        // choose the type of layout the main frome will have
-        mainframe.setLayout(new BorderLayout());
         // dimensions of the main frame
         mainframe.setSize(1000,700);
+        // choose the type of layout the main frome will have
+      
+        GridBagLayout gB = new GridBagLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+
+
+
+        mainframe.setLayout(gB);
+     
+        
+
+
 
 
         //JPanel barPanel = new JPanel(new BorderLayout());
@@ -50,13 +70,14 @@ public class mainpage extends JFrame{
      
 
         MarcsBar  barPanel = new  MarcsBar(DataHandler.returnCurrentTotal(), DataHandler.returnTotal());
-        
+  
         Legend = new MarcsScrollingPane(currentTotal, finalTotal);
         // int percentage = (int) Math.round((DataHandler.returnCurrentTotal()/DataHandler.returnTotal())*100);
 
         // Bar.setValue(percentage);
        
 
+       /* 
        
         mainframe.add(Legend,BorderLayout.WEST);
         mainframe.add(barPanel,BorderLayout.SOUTH);
@@ -65,17 +86,42 @@ public class mainpage extends JFrame{
 
 
 
-
+        */
         PieChartPanel pieChartPanel = new PieChartPanel("Total Spending Chart", PieChartPanel.createExpenseDataset());
 
         pieChartPanel.setPreferredSize(getPreferredSize());
+       
+        /* 
         mainframe.add(pieChartPanel,BorderLayout.CENTER);
- 
-
         // add things to the mainframe
         mainframe.add(titleheader, BorderLayout.NORTH);
  
+        */
+        constraints.fill = GridBagConstraints.NONE;
+        buildConstraints(constraints,2,0,1,1,1,1);
+        JButton b = new JButton("Settings");
+        gB.setConstraints(b, constraints);
+        constraints.fill = GridBagConstraints.BOTH;
+        buildConstraints(constraints,0,0,3,1,100,50);
+        gB.setConstraints(titleheader, constraints);
 
+        buildConstraints(constraints,1,1,2,1,500,500);
+        gB.setConstraints(pieChartPanel, constraints);
+        
+        buildConstraints(constraints,0,1,1,1,100,250);
+        gB.setConstraints(Legend, constraints);
+
+        buildConstraints(constraints,0,2,3,1,50,50);
+        gB.setConstraints(barPanel, constraints);
+
+  
+        
+       
+        mainframe.add(titleheader);
+        mainframe.add(b);
+        mainframe.add(pieChartPanel);
+        mainframe.add(Legend);
+        mainframe.add(barPanel);
 
         // check if you can see the page
         mainframe.setVisible(true);
