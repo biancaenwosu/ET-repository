@@ -1,8 +1,11 @@
 
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionListener;
 import java.awt.GridBagConstraints;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.HashMap;
@@ -100,6 +103,13 @@ public class mainpage extends JFrame{
         constraints.fill = GridBagConstraints.NONE;
         buildConstraints(constraints,2,0,1,1,1,1);
         JButton b = new JButton("Settings");
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              setting2page.main(null);
+              mainframe.dispose();
+            }
+        });
         gB.setConstraints(b, constraints);
         constraints.fill = GridBagConstraints.BOTH;
         buildConstraints(constraints,0,0,3,1,100,50);
